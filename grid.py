@@ -156,8 +156,10 @@ class Grid:
     def grains_radius(self, number_of_grains, radius, rows, columns):
 
         i = 0
-        while i < number_of_grains:
 
+        while i < number_of_grains:
+            print(number_of_grains)
+            print(i)
             row = np.random.randint(rows)
             column = np.random.randint(columns)
             if 0 <= row < rows and 0 <= column < columns and self.grid[row][column].state:

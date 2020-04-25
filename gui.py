@@ -146,7 +146,10 @@ class Gui(tk.Tk):
         self.neighborhood = self.combobox_neighborhood.get()
         self.grain = int(self.entry_grain.get())
         self.nucleation = self.combobox_nucleation.get()
-        self.radius = int(self.entry_radius.get())
+        if self.entry_radius.get() == '':
+            self.radius = 0
+        else:
+            self.radius = int(self.entry_radius.get())
 
         self.grid = Grid(self.columns,
                          self.rows,
@@ -154,7 +157,7 @@ class Gui(tk.Tk):
                          self.combobox_neighborhood.get(),
                          int(self.entry_grain.get()),
                          self.combobox_nucleation.get(),
-                         int(self.entry_radius.get()))
+                         self.radius)
 
         self.how_many_iteration(self.grid)
 
